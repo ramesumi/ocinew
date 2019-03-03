@@ -46,6 +46,7 @@ pipeline {
           sh "jx step tag --version \$(cat VERSION)"
           sh "gradle clean build"
           // sh "docker login --username='ramesumi/ramesumi@gmail.com' --password='9]C-13KLiUgESTl[pWXc' 'phx.ocir.io'"
+          sh "docker daemon --insecure-registry=10.96.235.154:5000"
           sh "export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml"
           sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:\$(cat VERSION) $env"
         }

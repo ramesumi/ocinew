@@ -4,9 +4,7 @@ build:
   artifacts:
   - image: changeme
     context: .
-    docker: {
-         buildArgs: 'insecure-registry 10.96.235.154:5000'
-        }
+    docker: {}
   tagPolicy:
     envTemplate:
       template: '{{.DOCKER_REGISTRY}}/ramesumi/ocinew:{{.VERSION}}'
@@ -22,7 +20,7 @@ profiles:
       envTemplate:
         template: '{{.DOCKER_REGISTRY}}/ramesumi/ocinew:{{.DIGEST_HEX}}'
     local: {}
-  deploy:
+      deploy:
     helm:
       releases:
       - name: ocinew
