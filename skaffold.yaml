@@ -4,7 +4,9 @@ build:
   artifacts:
   - image: changeme
     context: .
-    docker: {}
+    docker: {
+         buildArgs: --insecure-registry 10.96.235.154:5000
+        }
   tagPolicy:
     envTemplate:
       template: '{{.DOCKER_REGISTRY}}/ramesumi/ocinew:{{.VERSION}}'
