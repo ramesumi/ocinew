@@ -5,7 +5,7 @@ build:
   - image: changeme
     context: .
     docker: {
-         buildArgs: --insecure-registry 10.96.235.154:5000
+         buildArgs: insecure-registry 10.96.235.154:5000
         }
   tagPolicy:
     envTemplate:
